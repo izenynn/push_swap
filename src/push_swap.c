@@ -1,18 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpoveda- <me@izenynn.com>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/29 10:44:03 by dpoveda-          #+#    #+#             */
-/*   Updated: 2021/09/29 10:44:35 by dpoveda-         ###   ########.fr       */
+/*   Created: 2021/09/29 10:27:52 by dpoveda-          #+#    #+#             */
+/*   Updated: 2021/09/29 10:48:19 by dpoveda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include <libft.h>
+#include <push_swap.h>
 
-int	check_args(int ac, char **av);
-
-#endif
+int	main(int ac, char **av)
+{
+	if (ac < 2)
+		return (1);
+	if (check_args(ac, av))
+		return (1);
+	// TODO: crear los dos stacks :D
+	return (0);
+}

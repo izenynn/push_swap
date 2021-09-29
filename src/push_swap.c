@@ -60,13 +60,6 @@ static t_global *create_stack()
 	return (tab);
 }
 
-int	args_invalid_return(int *arr)
-{
-	if (arr)
-		free(arr);
-	return (1);
-}
-
 int	handle_args(int ac, char **av, int **arr)
 {
 	if (ac < 2 || check_args(ac, av))

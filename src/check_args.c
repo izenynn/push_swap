@@ -12,7 +12,6 @@
 
 #include <libft/ft_str.h>
 #include <libft/ft_char.h>
-#include <libft/ft_printf.h>
 
 static int	check_av_valid(int ac, char **av)
 {

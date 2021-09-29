@@ -10,38 +10,39 @@
 #                                                                              #
 # **************************************************************************** #
 
+# NAMES
 NAME = push_swap
 
 LIBFT_NAME = libft.a
 
+# MAKE
 MAKE = make
 
+# COMPILER
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g3
 
-CFLAGS += -I ./libft/inc -I ./inc
+CFLAGS += -I ./$(LIBFT_DIR)/inc -I ./inc
 
-LDFLAGS = -L libft
+LDFLAGS = -L $(LIBFT_DIR)
 
 LDLIBS = -lft
 
-LIBFT = libft/libft.a
+LIBFT = $(LIBFT_DIR)/$(LIBFT_NAME)
 
-ARFLAGS = -rcs
-
+# DIRS
 SRCS_DIR = src
 
 OBJS_DIR = obj
 
-#SRC_PUSH_SWAP_FILE = push_swap.c
+LIBFT_DIR = libft
 
-SRCS_FILES =	push_swap.c		check_args.c	#	rules_s.c		rules_p.c		\
-				rules_r.c			rules_rr.c
+# SOURCES
+SRCS_FILES =	push_swap.c		check_args.c		tab_utils.c#		\
+				rules_s.c		rules_p.c		rules_r.c		rules_rr.c		\
 
 OBJS_FILES = $(SRCS_FILES:%.c=%.o)
-
-#SRC_PUSH_SWAP = $(addprefix $(SRCS_DIR)/, $(SRC_PUSH_SWAP_FILE))
 
 SRCS = $(addprefix $(SRCS_DIR)/, $(SRCS_FILES))
 

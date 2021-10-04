@@ -42,11 +42,8 @@ static int	check_is_int(char *s)
 	sign = 0;
 	is_neg = 0;
 	len = ft_strlen(s);
-	if (*s == '-' && ++is_neg)
-	{
-		sign = 1;
+	if (*s == '-' && ++is_neg && ++sign)
 		len--;
-	}
 	else if (*s == '+' && len--)
 		sign = 1;
 	if (len > 10)

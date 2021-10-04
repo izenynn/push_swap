@@ -17,36 +17,31 @@
 
 #include <libft/ft_printf.h>
 
-static int	create_int_arr(int **arr, char **args)
+static int	*create_int_arr(int ac, char **av)
 {
 	int	i;
-	int	n;
+	int	*arr;
 
-	i = -1;
-	n = 0;
-	//while (args[++i])
-	//	n++;
-	n = 2;
-	*arr = (int *)malloc(sizeof(int) * n);
-	if (!*arr)
-		return (-1);
-	i = -1;
-	// TODO: quitar el + 1 de args cuando este bien parseado
-	while (++i < n)
-		(*arr)[i] = ft_atoi(args[i + 1]);
-	return (n);
+	arr = (int *)malloc(sizeof(int) * (ac));
+	if (!arr)
+		return (NULL);
+	i = 0;
+	while (++i < ac)
+		arr[i - 1] = ft_atoi(av[i]);
+	arr[i - 1] = 0;
+	return (arr);
 }
 
-static int	check_repeat(int *arr, int n)
+static int	check_repeat(int *arr)
 {
 	int	i;
 	int	j;
 
 	i = -1;
-	while (++i < n)
+	while (arr[++i])
 	{
 		j = i;
-		while (++j < n)
+		while (arr[++j])
 			if (arr[i] == arr[j])
 				return (1);
 	}
@@ -67,49 +62,45 @@ static t_global *create_stack()
 
 int	handle_args(int ac, char **av, int **arr)
 {
-	int	n;
-
 	if (ac < 2 || check_args(ac, av))
-		return (-1);
-	n = create_int_arr(arr, av);
+		return (1);
+	*arr = create_int_arr(ac, av);
 	if (!*arr)
-		return (-1);
-	if (check_repeat(*arr, n))
+		return (1);
+	if (check_repeat(*arr))
 	{
 		free(*arr);
-		return (-1);
+		return (1);
 	}
-	return (n);
+	return (0);
 }
 
 int	main(int ac, char **av)
 {
 	t_global	*tab;
 	int	*arr;
-	int	n;
 
-	n = handle_args(ac, av, &arr);
-	if (n < 1)
+	if (handle_args(ac, av, &arr))
 	{
-		write(2, "Error\n", 7);
+		write(2, "Error\n", ft_strlen("Error\n"));
 		return (1);
 	}
 	tab = create_stack();
 	// print arr (just for test purpouses)
-	for (int i = 0; i < n - 1; i++)
+	ft_printf("ARR: ");
+	for (int i = 0; i < ac - 1; i++)
 		ft_printf("%5d", arr[i]);
 	//
-	if (initialise_tab(tab, arr, n))
+	if (initialise_tab(tab, arr, ac))
 		return (1);
-	// TODO: inicializar los stacks con numeros entreo 0 y x
 	// print tab (test purpouses)
-	ft_printf("\n");
+	ft_printf("\nTAB: ");
 	tab->a = tab->head_a;
 	while (tab->a)
 	{
 		ft_printf("%5d", *(int *)tab->a->content);
 		tab->a = tab->a->next;
 	}
+	//
 	return (free_tab_return(tab));
-	// TODO: mensaje de error cuando le pasas una rgumento invalido :)
 }

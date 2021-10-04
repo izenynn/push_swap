@@ -26,6 +26,6 @@ typedef struct s_global
 
 int	check_args(int ac, char **av);
 int	free_tab_return(t_global *tab);
-int	initialise_tab(t_global *tab, int *arr);
+int	initialise_tab(t_global *tab, int *arr, int n);
 
 #endif

@@ -17,31 +17,36 @@
 
 #include <libft/ft_printf.h>
 
-static int	*create_int_arr(int ac, char **av)
+static int	create_int_arr(int **arr, char **args)
 {
 	int	i;
-	int	*arr;
+	int	n;
 
-	arr = (int *)malloc(sizeof(int) * (ac));
-	if (!arr)
-		return (NULL);
-	i = 0;
-	while (++i < ac)
-		arr[i - 1] = ft_atoi(av[i]);
-	arr[i - 1] = 0;
-	return (arr);
+	i = -1;
+	n = 0;
+	//while (args[++i])
+	//	n++;
+	n = 2;
+	*arr = (int *)malloc(sizeof(int) * n);
+	if (!*arr)
+		return (-1);
+	i = -1;
+	// TODO: quitar el + 1 de args cuando este bien parseado
+	while (++i < n)
+		(*arr)[i] = ft_atoi(args[i + 1]);
+	return (n);
 }
 
-static int	check_repeat(int *arr)
+static int	check_repeat(int *arr, int n)
 {
 	int	i;
 	int	j;
 
 	i = -1;
-	while (arr[++i])
+	while (++i < n)
 	{
 		j = i;
-		while (arr[++j])
+		while (++j < n)
 			if (arr[i] == arr[j])
 				return (1);
 	}
@@ -62,35 +67,39 @@ static t_global *create_stack()
 
 int	handle_args(int ac, char **av, int **arr)
 {
+	int	n;
+
 	if (ac < 2 || check_args(ac, av))
-		return (1);
-	*arr = create_int_arr(ac, av);
+		return (-1);
+	n = create_int_arr(arr, av);
 	if (!*arr)
-		return (1);
-	if (check_repeat(*arr))
+		return (-1);
+	if (check_repeat(*arr, n))
 	{
 		free(*arr);
-		return (1);
+		return (-1);
 	}
-	return (0);
+	return (n);
 }
 
 int	main(int ac, char **av)
 {
 	t_global	*tab;
 	int	*arr;
+	int	n;
 
-	if (handle_args(ac, av, &arr))
+	n = handle_args(ac, av, &arr);
+	if (n < 1)
 	{
-		write(2, "Error\n", ft_strlen("Error\n"));
+		write(2, "Error\n", 7);
 		return (1);
 	}
 	tab = create_stack();
 	// print arr (just for test purpouses)
-	for (int i = 0; i < ac - 1; i++)
+	for (int i = 0; i < n - 1; i++)
 		ft_printf("%5d", arr[i]);
 	//
-	if (initialise_tab(tab, arr))
+	if (initialise_tab(tab, arr, n))
 		return (1);
 	// TODO: inicializar los stacks con numeros entreo 0 y x
 	// print tab (test purpouses)

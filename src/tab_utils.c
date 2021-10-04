@@ -29,7 +29,7 @@ int	free_tab_return(t_global *tab)
 	return (0);
 }
 
-int	initialise_tab(t_global *tab, int *arr)
+int	initialise_tab(t_global *tab, int *arr, int n)
 {
 	int	cnt;
 	int	i;
@@ -37,14 +37,14 @@ int	initialise_tab(t_global *tab, int *arr)
 	int	*tmp;
 
 	i = -1;
-	while (arr[++i])
+	while (++i < n)
 	{
 		tmp = (int *)malloc(sizeof(int));
 		if (!tmp)
 			return (1);
 		cnt = 0;
 		j = -1;
-		while (arr[++j])
+		while (++j < n)
 			if (j != i && arr[j] < arr[i])
 				cnt++;
 		*tmp = cnt;

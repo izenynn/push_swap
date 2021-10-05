@@ -12,10 +12,20 @@
 
 #include <push_swap.h>
 #include <libft/ft_lst.h>
+#include <libft/ft_mem.h>
 #include <stdlib.h>
-#include <stdio.h>
 
-// TODO: function to free elements in tab
+t_global	*create_stack()
+{
+	t_global	*tab;
+
+	tab = (t_global *)ft_calloc(sizeof(t_global), 1);
+	if (!tab)
+		return (NULL);
+	tab->head_a = NULL;
+	tab->head_b = NULL;
+	return (tab);
+}
 
 int	free_tab_return(t_global *tab)
 {
@@ -51,6 +61,5 @@ int	initialise_tab(t_global *tab, int *arr, int ac)
 		ft_lstadd_back(&tab->head_a, ft_lstnew(tmp));
 		tmp = NULL;
 	}
-	free(arr);
 	return (0);
 }

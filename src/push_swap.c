@@ -48,18 +48,6 @@ static int	check_repeat(int *arr)
 	return (0);
 }
 
-static t_global *create_stack()
-{
-	t_global	*tab;
-
-	tab = (t_global *)ft_calloc(sizeof(t_global), 1);
-	if (!tab)
-		return (NULL);
-	tab->head_a = NULL;
-	tab->head_b = NULL;
-	return (tab);
-}
-
 int	handle_args(int ac, char **av, int **arr)
 {
 	if (ac < 2 || check_args(ac, av))
@@ -83,25 +71,32 @@ int	main(int ac, char **av)
 	if (handle_args(ac, av, &arr))
 	{
 		write(2, "Error\n", ft_strlen("Error\n"));
+		//system("leaks -q push_swap");
 		return (1);
 	}
 	tab = create_stack();
-	// print arr (just for test purpouses)
-	ft_printf("ARR: ");
-	for (int i = 0; i < ac - 1; i++)
-		ft_printf("%5d", arr[i]);
-	//
 	if (initialise_tab(tab, arr, ac))
 		return (1);
-	// print tab (test purpouses)
-	ft_printf("\nTAB: ");
+	//free(arr);
+	// print v2
+	ft_printf("|---------------------------|\n");
+	ft_printf("|     ARR     |     TAB     |\n");
+	ft_printf("|---------------------------|\n");
 	tab->a = tab->head_a;
-	while (tab->a)
+	for (int i = 0; i < ac - 1; i++)
 	{
-		ft_printf("%5d", *(int *)tab->a->content);
-		tab->a = tab->a->next;
+		ft_printf("| %-12d|", arr[i]);
+		if (tab->a)
+		{
+			ft_printf(" %-12d|\n", *(int *)tab->a->content);
+			tab->a = tab->a->next;
+		}
+		else
+			ft_printf("             |\n");
 	}
-	ft_printf("\n");
+	ft_printf("|---------------------------|\n");
+	free(arr);
+	//system("leaks -q push_swap");
 	//
 	return (free_tab_return(tab));
 }

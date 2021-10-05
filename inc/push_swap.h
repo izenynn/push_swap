@@ -24,8 +24,9 @@ typedef struct s_global
 }	t_global;
 
 
-int	check_args(int ac, char **av);
-int	free_tab_return(t_global *tab);
-int	initialise_tab(t_global *tab, int *arr, int n);
+t_global	*create_stack();
+int			check_args(int ac, char **av);
+int			free_tab_return(t_global *tab);
+int			initialise_tab(t_global *tab, int *arr, int n);
 
 #endif

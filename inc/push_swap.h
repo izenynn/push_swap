@@ -13,14 +13,14 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <libft/ft_lst.h>
+# include <libft/ft_dlst.h>
 
 typedef struct s_global
 {
-	t_list *a;
-	t_list *b;
-	t_list *head_a;
-	t_list *head_b;
+	t_dlist *a;
+	t_dlist *b;
+	t_dlist *head_a;
+	t_dlist *head_b;
 }	t_global;
 
 

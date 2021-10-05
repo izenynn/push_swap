@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include <push_swap.h>
-#include <libft/ft_lst.h>
+#include <libft/ft_dlst.h>
 #include <libft/ft_mem.h>
 #include <stdlib.h>
 
@@ -32,9 +32,9 @@ int	free_tab_return(t_global *tab)
 	if (!tab)
 		return (0);
 	if (tab->head_a)
-		ft_lstclear(&tab->head_a, free);
+		ft_dlstclear(&tab->head_a, free);
 	if (tab->head_b)
-		ft_lstclear(&tab->head_b, free);
+		ft_dlstclear(&tab->head_b, free);
 	free(tab);
 	return (0);
 }
@@ -58,7 +58,7 @@ int	initialise_tab(t_global *tab, int *arr, int ac)
 			if (j != i && arr[j] < arr[i])
 				cnt++;
 		*tmp = cnt;
-		ft_lstadd_back(&tab->head_a, ft_lstnew(tmp));
+		ft_dlstadd_back(&tab->head_a, ft_dlstnew(tmp));
 		tmp = NULL;
 	}
 	return (0);

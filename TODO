@@ -1,0 +1,12 @@
+=================
+TODO LIST
+=================
+
+[TYPE :urgent: <TASK_ORDER>] Parsear
+
+	parsear todo en un argumento -> ./push_swap "4 6 2 54 11"
+
+[/TYPE]
+
+[TYPE :hight: <TASK_ORDER>] rules [/TYPE]
+[TYPE :hight: <TASK_ORDER>] algorithm [/TYPE]

@@ -50,11 +50,11 @@ static int	check_is_int(char *s)
 		return (1);
 	else if (len < 10)
 		return (0);
-	if (!sign && !is_neg && ft_strncmp(s, "2147483647", 10) >= 0)
+	if (!sign && !is_neg && ft_strncmp(s, "2147483648", 10) >= 0)
 		return (1);
-	else if (sign && !is_neg && ft_strncmp(s + 1, "2147483647", 10) >= 0)
+	else if (sign && !is_neg && ft_strncmp(s + 1, "2147483648", 10) >= 0)
 		return (1);
-	else if (sign && is_neg && ft_strncmp(s + 1, "2147483648", 10) >= 0)
+	else if (sign && is_neg && ft_strncmp(s + 1, "2147483649", 10) >= 0)
 		return (1);
 	return (0);
 }

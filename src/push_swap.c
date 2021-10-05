@@ -101,6 +101,7 @@ int	main(int ac, char **av)
 		ft_printf("%5d", *(int *)tab->a->content);
 		tab->a = tab->a->next;
 	}
+	ft_printf("\n");
 	//
 	return (free_tab_return(tab));
 }

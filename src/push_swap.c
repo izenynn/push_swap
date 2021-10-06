@@ -16,6 +16,45 @@
 
 #include <libft/ft_printf.h>
 
+// REMOVE THIS FUNC IN FINAL VERSION
+static void	show_arr_tab(int n, int *arr, t_global *tab)
+{
+	ft_printf("\n|---------------------------|\n");
+	ft_printf("|     ARR     |     TAB     |\n");
+	ft_printf("|---------------------------|\n");
+	tab->a = tab->head_a;
+	for (int i = 0; i < n - 1; i++)
+	{
+		ft_printf("| %-12d|", arr[i]);
+		if (tab->a)
+		{
+			ft_printf(" %-12d|\n", *(int *)tab->a->content);
+			tab->a = tab->a->next;
+		}
+		else
+			ft_printf(" (null)      |\n");
+	}
+	ft_printf("|---------------------------|\n");
+}
+static void	show_tab(int n, t_global *tab)
+{
+	ft_printf("\n|-------------|\n");
+	ft_printf("|     TAB     |\n");
+	ft_printf("|-------------|\n");
+	tab->a = tab->head_a;
+	for (int i = 0; i < n - 1; i++)
+	{
+		if (tab->a)
+		{
+			ft_printf("| %-12d|\n", *(int *)tab->a->content);
+			tab->a = tab->a->next;
+		}
+		else
+			ft_printf("| (null)      |\n");
+	}
+	ft_printf("|-------------|\n");
+}
+
 static int	*create_int_arr(int ac, char **av)
 {
 	int	i;
@@ -76,26 +115,11 @@ int	main(int ac, char **av)
 	tab = create_stack();
 	if (initialise_tab(tab, arr, ac))
 		return (1);
-	//free(arr);
-	// print v2
-	ft_printf("|---------------------------|\n");
-	ft_printf("|     ARR     |     TAB     |\n");
-	ft_printf("|---------------------------|\n");
-	tab->a = tab->head_a;
-	for (int i = 0; i < ac - 1; i++)
-	{
-		ft_printf("| %-12d|", arr[i]);
-		if (tab->a)
-		{
-			ft_printf(" %-12d|\n", *(int *)tab->a->content);
-			tab->a = tab->a->next;
-		}
-		else
-			ft_printf("             |\n");
-	}
-	ft_printf("|---------------------------|\n");
+	// REMOVE THIS LINE
+	show_arr_tab(ac, arr, tab);
+	show_tab(ac, tab);
+	//
 	free(arr);
 	//system("leaks -q push_swap");
-	//
 	return (free_tab_return(tab));
 }

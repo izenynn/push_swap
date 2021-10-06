@@ -13,6 +13,8 @@
 #include <libft/ft_str.h>
 #include <libft/ft_char.h>
 
+#include <stdio.h>
+
 static int	check_av_valid(int n_cnt, char **av)
 {
 	int	i;
@@ -24,6 +26,8 @@ static int	check_av_valid(int n_cnt, char **av)
 		j = -1;
 		if (av[i][0] == '-' || av[i][0] == '+')
 			j++;
+		if (!ft_isdigit(av[i][j + 1]))
+			return (1);
 		while (av[i][++j])
 		{
 			if (!ft_isdigit(av[i][j]))
@@ -42,19 +46,21 @@ static int	check_is_int(char *s)
 	sign = 0;
 	is_neg = 0;
 	len = ft_strlen(s);
-	if (*s == '-' && ++is_neg && ++sign)
+	if (*s == '-' && ++is_neg && ++sign && s++)
 		len--;
-	else if (*s == '+' && len--)
-		sign = 1;
+	else if (*s == '+' && ++sign && s++)
+		len--;
+	while (*s == '0' && *s && len--)
+		s++;
 	if (len > 10)
 		return (1);
 	else if (len < 10)
 		return (0);
 	if (!sign && !is_neg && ft_strncmp(s, "2147483648", 10) >= 0)
 		return (1);
-	else if (sign && !is_neg && ft_strncmp(s + 1, "2147483648", 10) >= 0)
+	else if (sign && !is_neg && ft_strncmp(s, "2147483648", 10) >= 0)
 		return (1);
-	else if (sign && is_neg && ft_strncmp(s + 1, "2147483649", 10) >= 0)
+	else if (sign && is_neg && ft_strncmp(s, "2147483649", 10) >= 0)
 		return (1);
 	return (0);
 }

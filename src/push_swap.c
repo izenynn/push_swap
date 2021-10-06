@@ -70,16 +70,16 @@ static int	*create_int_arr(int n_cnt, char **nbrs)
 	return (arr);
 }
 
-static int	check_repeat(int *arr)
+static int	check_repeat(int *arr, int n_cnt)
 {
 	int	i;
 	int	j;
 
 	i = -1;
-	while (arr[++i])
+	while (++i < n_cnt)
 	{
 		j = i;
-		while (arr[++j])
+		while (++j < n_cnt)
 			if (arr[i] == arr[j])
 				return (1);
 	}
@@ -93,7 +93,7 @@ int	handle_check(int n_cnt, char **nbrs, int **arr)
 	*arr = create_int_arr(n_cnt, nbrs);
 	if (!*arr)
 		return (1);
-	if (check_repeat(*arr))
+	if (check_repeat(*arr, n_cnt))
 	{
 		free(*arr);
 		return (1);
@@ -121,12 +121,17 @@ int	handle_args(int ac, char **av, int **arr)
 		av_str = tmp;
 	}
 	nbrs = ft_split(av_str, ' ');
+	free(av_str);
 	n_cnt = 0;
 	i = -1;
 	while (nbrs[++i])
 		n_cnt++;
 	if (handle_check(n_cnt, nbrs, arr))
-		return (-1);
+		n_cnt = -1;
+	i = -1;
+	while (nbrs[++i])
+		free(nbrs[i]);
+	free(nbrs);
 	return (n_cnt);
 }
 

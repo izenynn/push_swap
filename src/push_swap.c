@@ -37,6 +37,7 @@ static void	show_arr_tab(int n, int *arr, t_global *tab)
 	}
 	ft_printf("|---------------------------|\n");
 }
+
 static void	show_tab(int n, t_global *tab)
 {
 	ft_printf("\n|-------------|\n");
@@ -59,26 +60,21 @@ static void	show_tab(int n, t_global *tab)
 int	main(int ac, char **av)
 {
 	t_global	*tab;
-	int	*arr;
-	int	n_cnt;
+	int			*arr;
+	int			n_cnt;
 
 	n_cnt = handle_args(ac, av, &arr);
 	if (n_cnt < 0)
-	{
-		ft_putstr_fd("Error\n", 2);
-		if (!arr)
-			free(arr);
-		//system("leaks -q push_swap");
-		return (1);
-	}
+		return (EXIT_FAILURE);
 	tab = create_stack();
 	if (initialise_tab(tab, arr, n_cnt))
-		return (1);
+		return (EXIT_FAILURE);
 	// TESTS
 	show_arr_tab(n_cnt, arr, tab);
 	show_tab(n_cnt, tab);
 	//
 	free(arr);
+	free_tab(tab);
 	//system("leaks -q push_swap");
-	return (free_tab_return(tab));
+	return (EXIT_SUCCESS);
 }

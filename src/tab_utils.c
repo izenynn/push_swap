@@ -15,7 +15,7 @@
 #include <libft/ft_mem.h>
 #include <stdlib.h>
 
-t_global	*create_stack()
+t_global	*create_stack(void)
 {
 	t_global	*tab;
 
@@ -27,16 +27,15 @@ t_global	*create_stack()
 	return (tab);
 }
 
-int	free_tab_return(t_global *tab)
+void	free_tab(t_global *tab)
 {
 	if (!tab)
-		return (0);
+		return ;
 	if (tab->head_a)
 		ft_dlstclear(&tab->head_a, free);
 	if (tab->head_b)
 		ft_dlstclear(&tab->head_b, free);
 	free(tab);
-	return (0);
 }
 
 int	initialise_tab(t_global *tab, int *arr, int n_cnt)

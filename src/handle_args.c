@@ -81,7 +81,7 @@ static char	**parse_args(int ac, char **av)
 	}
 	nbrs = ft_split(av_str, ' ');
 	free(av_str);
-	return(nbrs);
+	return (nbrs);
 }
 
 int	handle_args(int ac, char **av, int **arr)
@@ -101,5 +101,9 @@ int	handle_args(int ac, char **av, int **arr)
 	while (nbrs[++i])
 		free(nbrs[i]);
 	free(nbrs);
+	if (n_cnt < 0)
+	{
+		ft_putstr_fd("Error\n", 2);
+	}
 	return (n_cnt);
 }

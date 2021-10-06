@@ -17,17 +17,16 @@
 
 typedef struct s_global
 {
-	t_dlist *a;
-	t_dlist *b;
-	t_dlist *head_a;
-	t_dlist *head_b;
+	t_dlist	*a;
+	t_dlist	*b;
+	t_dlist	*head_a;
+	t_dlist	*head_b;
 }	t_global;
 
-
-t_global	*create_stack();
 int			handle_args(int ac, char **av, int **arr);
 int			check_args(int ac, char **av);
-int			free_tab_return(t_global *tab);
+t_global	*create_stack(void);
 int			initialise_tab(t_global *tab, int *arr, int n);
+void		free_tab(t_global *tab);
 
 #endif

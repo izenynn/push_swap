@@ -12,30 +12,30 @@
 
 #include <push_swap.h>
 
-static int	push(t_dlist **dst, t_dlist **src)
+static int	push(t_dlist **head_dst, t_dlist **head_src)
 {
 	int	d_sz;
 	int	s_sz;
 
-	d_sz = ft_dlstsize(*dst);
-	s_sz = ft_dlstsize(*src);
+	d_sz = ft_dlstsize(*head_dst);
+	s_sz = ft_dlstsize(*head_src);
 	if (s_sz < 1)
 		return (1);
 	if (s_sz == 1)
 	{
-		(*src)->next = *dst;
-		*dst = *src;
-		*src = NULL;
+		(*head_src)->next = *head_dst;
+		*head_dst = *head_src;
+		*head_src = NULL;
 	}
 	else
 	{
-		*src = (*src)->next;
-		(*src)->prev->next = *dst;
-		*dst = (*src)->prev;
-		(*src)->prev = NULL;
+		*head_src = (*head_src)->next;
+		(*head_src)->prev->next = *head_dst;
+		*head_dst = (*head_src)->prev;
+		(*head_src)->prev = NULL;
 	}
 	if (d_sz)
-		(*dst)->next->prev = *dst;
+		(*head_dst)->next->prev = *head_dst;
 	return (0);
 }
 

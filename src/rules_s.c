@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include <push_swap.h>
-#include <libft/ft_dlst.h>
-#include <libft/ft_printf.h>
 
 static int	swap(t_dlist **head)
 {

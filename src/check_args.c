@@ -13,8 +13,6 @@
 #include <libft/ft_str.h>
 #include <libft/ft_char.h>
 
-#include <stdio.h>
-
 static int	check_av_valid(int n_cnt, char **av)
 {
 	int	i;

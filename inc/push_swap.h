@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include <libft/ft_dlst.h>
+# include <libft/ft_printf.h>
 
 typedef struct s_global
 {
@@ -38,5 +39,11 @@ void		sb(t_global *tab);
 void		ss(t_global *tab);
 void		pa(t_global *tab);
 void		pb(t_global *tab);
+void		ra(t_global *tab);
+void		rb(t_global *tab);
+void		rr(t_global *tab);
+void		rra(t_global *tab);
+void		rrb(t_global *tab);
+void		rrr(t_global *tab);
 
 #endif

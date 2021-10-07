@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include <push_swap.h>
-#include <libft/ft_dlst.h>
-#include <libft/ft_printf.h>
 
 static int	push(t_dlist **dst, t_dlist **src)
 {

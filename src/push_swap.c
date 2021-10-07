@@ -10,17 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft/ft_str.h>
-#include <libft/ft_mem.h>
-#include <libft/ft_fd.h>
 #include <push_swap.h>
-
-#include <libft/ft_printf.h>
+#include <stdlib.h>
 
 // REMOVE THIS FUNC IN FINAL VERSION
 static void	show_arr_tab(int n, int *arr, t_global *tab)
 {
-	return ;
 	ft_printf("\n|---------------------------|\n");
 	ft_printf("|     ARR     |     TAB     |\n");
 	ft_printf("|---------------------------|\n");
@@ -107,7 +102,18 @@ int	main(int ac, char **av)
 	show_tab(n_cnt, tab);
 	pa(tab);
 	show_tab(n_cnt, tab);
-	//rb(tab);
+	ra(tab);
+	show_tab(n_cnt, tab);
+	pb(tab);
+	show_tab(n_cnt, tab);
+	rb(tab);
+	show_tab(n_cnt, tab);
+	rr(tab);
+	show_tab(n_cnt, tab);
+	rra(tab);
+	show_tab(n_cnt, tab);
+	rrr(tab);
+	show_tab(n_cnt, tab);
 	//
 	free(arr);
 	free_tab(tab);

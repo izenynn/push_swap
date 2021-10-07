@@ -23,10 +23,20 @@ typedef struct s_global
 	t_dlist	*head_b;
 }	t_global;
 
+// handle args
 int			handle_args(int ac, char **av, int **arr);
 int			check_args(int ac, char **av);
+
+// stacks
 t_global	*create_stack(void);
 int			initialise_tab(t_global *tab, int *arr, int n);
 void		free_tab(t_global *tab);
+
+// rules
+void		sa(t_global *tab);
+void		sb(t_global *tab);
+void		ss(t_global *tab);
+void		pa(t_global *tab);
+void		pb(t_global *tab);
 
 #endif

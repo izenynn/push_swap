@@ -20,6 +20,7 @@
 // REMOVE THIS FUNC IN FINAL VERSION
 static void	show_arr_tab(int n, int *arr, t_global *tab)
 {
+	return ;
 	ft_printf("\n|---------------------------|\n");
 	ft_printf("|     ARR     |     TAB     |\n");
 	ft_printf("|---------------------------|\n");
@@ -35,27 +36,39 @@ static void	show_arr_tab(int n, int *arr, t_global *tab)
 		else
 			ft_printf(" (null)      |\n");
 	}
-	ft_printf("|---------------------------|\n");
+	ft_printf("|---------------------------|\n\n");
 }
 
 static void	show_tab(int n, t_global *tab)
 {
-	return ;
-	ft_printf("\n|-------------|\n");
-	ft_printf("|     TAB     |\n");
-	ft_printf("|-------------|\n");
+	int	a_sz;
+	int	b_sz;
+
+	a_sz = ft_dlstsize(tab->head_a);
+	b_sz = ft_dlstsize(tab->head_b);
+	ft_printf("\n|-------------|-------------|\n");
+	ft_printf("|      A      |      B      |\n");
+	ft_printf("|-------------|-------------|\n");
 	tab->a = tab->head_a;
+	tab->b = tab->head_b;
 	for (int i = 0; i < n; i++)
 	{
-		if (tab->a)
+		if (tab->a && n - a_sz <= i)
 		{
-			ft_printf("| %-12d|\n", *(int *)tab->a->content);
+			ft_printf("| %-12d", *(int *)tab->a->content);
 			tab->a = tab->a->next;
 		}
 		else
-			ft_printf("| (null)      |\n");
+			ft_printf("|             ");
+		if (tab->b && n - b_sz <= i)
+		{
+			ft_printf("| %-12d|\n", *(int *)tab->b->content);
+			tab->b = tab->b->next;
+		}
+		else
+			ft_printf("|             |\n");
 	}
-	ft_printf("|-------------|\n");
+	ft_printf("|-------------|-------------|\n\n");
 }
 
 int	main(int ac, char **av)
@@ -80,6 +93,21 @@ int	main(int ac, char **av)
 	// TESTS
 	show_arr_tab(n_cnt, arr, tab);
 	show_tab(n_cnt, tab);
+	sa(tab);
+	show_tab(n_cnt, tab);
+	pb(tab);
+	pb(tab);
+	pb(tab);
+	show_tab(n_cnt, tab);
+	pa(tab);
+	show_tab(n_cnt, tab);
+	sb(tab);
+	show_tab(n_cnt, tab);
+	ss(tab);
+	show_tab(n_cnt, tab);
+	pa(tab);
+	show_tab(n_cnt, tab);
+	//rb(tab);
 	//
 	free(arr);
 	free_tab(tab);

@@ -12,3 +12,15 @@
 
 #include <push_swap.h>
 #include <libft/ft_printf.h>
+
+void	shift(t_dlist **head)
+{
+	;
+}
+
+void	exec_ra(t_global *tab)
+{
+	;
+}
+
+void	exec_rb(t_global)

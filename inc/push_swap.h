@@ -46,4 +46,7 @@ void		rra(t_global *tab);
 void		rrb(t_global *tab);
 void		rrr(t_global *tab);
 
+// sort
+void		handle_sort(int n_cnt, t_global *tab);
+
 #endif

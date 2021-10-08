@@ -13,8 +13,10 @@
 #include <push_swap.h>
 #include <stdlib.h>
 
+#pragma region tests
+
 // REMOVE THIS FUNC IN FINAL VERSION
-static void	show_arr_tab(int n, int *arr, t_global *tab)
+/*static void	show_arr_tab(int n, int *arr, t_global *tab)
 {
 	ft_printf("\n|---------------------------|\n");
 	ft_printf("|     ARR     |      A      |\n");
@@ -32,9 +34,9 @@ static void	show_arr_tab(int n, int *arr, t_global *tab)
 			ft_printf(" (null)      |\n");
 	}
 	ft_printf("|---------------------------|\n\n");
-}
+}*/
 
-static void	show_tab(int n, t_global *tab)
+/*static void	show_tab(int n, t_global *tab)
 {
 	int	a_sz;
 	int	b_sz;
@@ -64,7 +66,14 @@ static void	show_tab(int n, t_global *tab)
 			ft_printf("|             |\n");
 	}
 	ft_printf("|-------------|-------------|\n\n");
-}
+}*/
+
+/*void	leaks(void)
+{
+	system("leaks -q push_swap");
+}*/
+
+#pragma endregion tests
 
 int	main(int ac, char **av)
 {
@@ -72,51 +81,20 @@ int	main(int ac, char **av)
 	int			*arr;
 	int			n_cnt;
 
+	// TESTS
+	//atexit(leaks);
+	//
 	n_cnt = handle_args(ac, av, &arr);
 	if (n_cnt < 0)
-	{
-		//system("leaks -q push_swap");
 		return (EXIT_FAILURE);
-	}
 	tab = create_stack();
 	if (initialise_tab(tab, arr, n_cnt))
 	{
 		free(arr);
-		//system("leaks -q push_swap");
 		return (EXIT_FAILURE);
 	}
-	// TESTS
-	show_arr_tab(n_cnt, arr, tab);
-	show_tab(n_cnt, tab);
-	sa(tab);
-	show_tab(n_cnt, tab);
-	pb(tab);
-	pb(tab);
-	pb(tab);
-	show_tab(n_cnt, tab);
-	pa(tab);
-	show_tab(n_cnt, tab);
-	sb(tab);
-	show_tab(n_cnt, tab);
-	ss(tab);
-	show_tab(n_cnt, tab);
-	pa(tab);
-	show_tab(n_cnt, tab);
-	ra(tab);
-	show_tab(n_cnt, tab);
-	pb(tab);
-	show_tab(n_cnt, tab);
-	rb(tab);
-	show_tab(n_cnt, tab);
-	rr(tab);
-	show_tab(n_cnt, tab);
-	rra(tab);
-	show_tab(n_cnt, tab);
-	rrr(tab);
-	show_tab(n_cnt, tab);
-	//
 	free(arr);
+	handle_sort(n_cnt, tab);
 	free_tab(tab);
-	//system("leaks -q push_swap");
 	return (EXIT_SUCCESS);
 }

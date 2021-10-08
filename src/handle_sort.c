@@ -12,7 +12,7 @@
 
 #include <push_swap.h>
 
-static int	is_sorted(t_dlist *head)
+int	is_sorted(t_dlist *head)
 {
 	while (head->next)
 	{

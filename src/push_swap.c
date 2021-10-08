@@ -36,7 +36,7 @@
 	ft_printf("|---------------------------|\n\n");
 }*/
 
-/*static void	show_tab(int n, t_global *tab)
+static void	show_tab(int n, t_global *tab)
 {
 	int	a_sz;
 	int	b_sz;
@@ -66,7 +66,7 @@
 			ft_printf("|             |\n");
 	}
 	ft_printf("|-------------|-------------|\n\n");
-}*/
+}
 
 /*void	leaks(void)
 {
@@ -94,7 +94,9 @@ int	main(int ac, char **av)
 		return (EXIT_FAILURE);
 	}
 	free(arr);
+	show_tab(n_cnt, tab);
 	handle_sort(n_cnt, tab);
+	show_tab(n_cnt, tab);
 	free_tab(tab);
 	return (EXIT_SUCCESS);
 }

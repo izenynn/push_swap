@@ -27,7 +27,7 @@
 		ft_printf("| %-12d|", arr[i]);
 		if (tab->a)
 		{
-			ft_printf(" %-12d|\n", *(int *)tab->a->content);
+			ft_printf(" %-12d|\n", *(int *)tab->a->data);
 			tab->a = tab->a->next;
 		}
 		else
@@ -52,14 +52,14 @@
 	{
 		if (tab->a && n - a_sz <= i)
 		{
-			ft_printf("| %-12d", *(int *)tab->a->content);
+			ft_printf("| %-12d", *(int *)tab->a->data);
 			tab->a = tab->a->next;
 		}
 		else
 			ft_printf("|             ");
 		if (tab->b && n - b_sz <= i)
 		{
-			ft_printf("| %-12d|\n", *(int *)tab->b->content);
+			ft_printf("| %-12d|\n", *(int *)tab->b->data);
 			tab->b = tab->b->next;
 		}
 		else

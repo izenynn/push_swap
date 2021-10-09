@@ -14,39 +14,45 @@
 
 static void	sort_3(t_global *tab)
 {
-	tab->a = tab->head_a->next;
-	if (*(int *)tab->a->data + 1 == *(int *)tab->a->next->data)
-		ra(tab);
-	else if (*(int *)tab->head_a->data + 1 == *(int *)tab->a->data)
-		rra(tab);
-	else
+	int	arr[3];
+
+	arr[0] = *(int *)tab->head_a->data;
+	arr[1] = *(int *)tab->head_a->next->data;
+	arr[2] = *(int *)tab->head_a->next->next->data;
+
+	if (arr[0] > arr[1] && arr[1] < arr[2] && arr[2] > arr[0])
+		sa(tab);
+	else if (arr[0] > arr[1] && arr[1] > arr[2] && arr[2] < arr[0])
 	{
 		sa(tab);
-		if (is_sorted(tab->head_a))
-			return ;
-		tab->a = tab->head_a->next;
-		if (*(int *)tab->a->data + 1 == *(int *)tab->a->next->data)
-			ra(tab);
-		else if (*(int *)tab->head_a->data + 1 == *(int *)tab->a->data)
-			rra(tab);
+		rra(tab);
 	}
+	else if (arr[0] > arr[1] && arr[1] < arr[2] && arr[2] < arr[0])
+		ra(tab);
+	else if (arr[0] < arr[1] && arr[1] > arr[2] && arr[2] > arr[0])
+	{
+		sa(tab);
+		ra(tab);
+	}
+	else if (arr[0] < arr[1] && arr[1] > arr[2] && arr[2] < arr[0])
+		rra(tab);
 }
 
 static void	sort_5(t_global *tab)
 {
-	pb(tab);
-	pb(tab);
+	n_ops(pb, tab, 2);
 	sort_3(tab);
-	//pa(tab);
-	//pa(tab);
+	n_ops(pa, tab, 2);
 }
 
 void	sort_small(int n_cnt, t_global *tab)
 {
 	if (n_cnt == 2)
+	{
 		if (*(int *)tab->head_a->data > *(int *)tab->head_a->next->data)
 			sa(tab);
-	if (n_cnt == 3)
+	}
+	else if (n_cnt == 3)
 		sort_3(tab);
 	else
 		sort_5(tab);

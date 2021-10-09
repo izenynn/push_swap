@@ -13,10 +13,8 @@
 #include <push_swap.h>
 #include <stdlib.h>
 
-#pragma region tests
-
 // REMOVE THIS FUNC IN FINAL VERSION
-/*static void	show_arr_tab(int n, int *arr, t_global *tab)
+static void	show_arr_tab(int n, int *arr, t_global *tab)
 {
 	ft_printf("\n|---------------------------|\n");
 	ft_printf("|     ARR     |      A      |\n");
@@ -34,7 +32,7 @@
 			ft_printf(" (null)      |\n");
 	}
 	ft_printf("|---------------------------|\n\n");
-}*/
+}
 
 static void	show_tab(int n, t_global *tab)
 {
@@ -73,7 +71,7 @@ static void	show_tab(int n, t_global *tab)
 	system("leaks -q push_swap");
 }*/
 
-#pragma endregion tests
+//
 
 int	main(int ac, char **av)
 {
@@ -93,6 +91,7 @@ int	main(int ac, char **av)
 		free(arr);
 		return (EXIT_FAILURE);
 	}
+	show_arr_tab(n_cnt, arr, tab);
 	free(arr);
 	show_tab(n_cnt, tab);
 	handle_sort(n_cnt, tab);

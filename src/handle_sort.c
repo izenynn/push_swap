@@ -12,6 +12,12 @@
 
 #include <push_swap.h>
 
+void n_ops(void (*op)(t_global *), t_global *tab, int n)
+{
+	while (n--)
+		op(tab);
+}
+
 int	is_sorted(t_dlist *head)
 {
 	while (head->next)

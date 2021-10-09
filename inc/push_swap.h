@@ -50,5 +50,6 @@ void		rrr(t_global *tab);
 void		handle_sort(int n_cnt, t_global *tab);
 void		sort_small(int n_cnt, t_global *tab);
 int			is_sorted(t_dlist *head);
+void		n_ops(void (*op)(t_global *), t_global *tab, int n);
 
 #endif

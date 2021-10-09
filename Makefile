@@ -6,7 +6,7 @@
 #    By: dpoveda- <me@izenynn.com>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/29 10:15:42 by dpoveda-          #+#    #+#              #
-#    Updated: 2021/10/08 17:21:38 by dpoveda-         ###   ########.fr        #
+#    Updated: 2021/10/09 21:23:59 by dpoveda-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,8 +40,8 @@ LIBFT_DIR = libft
 
 # SOURCES
 SRCS_FILES =	push_swap.c		handle_args.c		check_args.c		\
-				tab_utils.c		rules_s.c			rules_p.c			\
-				rules_r.c		rules_rr.c			handle_sort.c		\
+				tab_utils.c		ops_s.c				ops_p.c			\
+				ops_r.c			ops_rr.c			handle_sort.c		\
 				sort_small.c
 
 OBJS_FILES = $(SRCS_FILES:%.c=%.o)

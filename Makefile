@@ -50,7 +50,7 @@ SRCS = $(addprefix $(SRCS_DIR)/, $(SRCS_FILES))
 
 OBJS = $(addprefix $(OBJS_DIR)/, $(OBJS_FILES))
 
-.PHONY: all clean fclean re
+.PHONY: all bonus clean fclean re norm
 
 all: $(NAME)
 
@@ -76,3 +76,8 @@ fclean: clean
 	rm -rf $(NAME)
 
 re: fclean all
+
+norm:
+	@clear
+	@echo "===== NORMINETTE ====="
+	@norminette .

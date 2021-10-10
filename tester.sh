@@ -3,8 +3,20 @@
 # Check args
 if [ -z $1 ] || [ -z $2 ] || [ -z $3 ]; then
 	printf "Invalid arguments\nPlease provide this arguments for the random generation:\n"
-	printf "\t1. Min (range)\n\t2. Max (range)\n\t3. Random selection size\n"
+	printf "\t1. Range min\n\t2. Range max\n\t3. Random selection size\n"
 	exit 1
+fi
+
+# Make if push_swap do not exists
+if [ ! -f "./push_swap" ]; then
+	printf "WARNING: ./push_swap does not exists, running make...\n"
+	make -s
+	echo ""
+fi
+if [ ! -f "./checker_bonus" ] && [[ $4 == "bonus" ]]; then
+	printf "WARNING: ./checker_bonus does not exists, running make bonus...\n"
+	make bonus -s
+	echo ""
 fi
 
 # Generato random arguments
@@ -21,11 +33,7 @@ elif [ $CHK_LINUX ]; then
 fi
 if [[ $4 == "bonus" ]]; then
 	CHK_BONUS=`./push_swap $ARG | ./checker_bonus $ARG 2> /dev/null`
-	if [ -z $CHK_BONUS ]; then
-		printf "checker_bonus: ERROR: make sure you compile the checker_bonus file (make bonus)\n"
-	else
-		printf "checker_bonus: %s\n" "$CHK_BONUS"
-	fi
+	printf "checker_bonus: %s\n" "$CHK_BONUS"
 fi
 
 # Moves

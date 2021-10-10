@@ -17,6 +17,8 @@ static int	push(t_dlist **head_dst, t_dlist **head_src)
 	int	d_sz;
 	int	s_sz;
 
+	if (!*head_src)
+		return (1);
 	d_sz = ft_dlstsize(*head_dst);
 	s_sz = ft_dlstsize(*head_src);
 	if (s_sz < 1)

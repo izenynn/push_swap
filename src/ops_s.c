@@ -16,6 +16,8 @@ static int	swap(t_dlist **head)
 {
 	int	sz;
 
+	if (!*head)
+		return (1);
 	sz = ft_dlstsize(*head);
 	if (sz < 2)
 		return (1);

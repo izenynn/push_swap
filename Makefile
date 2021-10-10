@@ -21,7 +21,7 @@ MAKE = make
 # COMPILER
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g3
+CFLAGS = -Wall -Wextra -Werror #-fsanitize=address -g3
 
 CFLAGS += -I ./$(LIBFT_DIR)/inc -I ./inc
 

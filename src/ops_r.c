@@ -14,6 +14,8 @@
 
 static int	shift(t_dlist **head)
 {
+	if (!*head)
+		return (1);
 	if (ft_dlstsize(*head) < 2)
 		return (1);
 	*head = (*head)->next;

@@ -38,11 +38,11 @@ static void	sort_3(t_global *tab)
 		rra(tab);
 }
 
-static void	sort_5(t_global *tab)
+static void	sort_5(int n_cnt, t_global *tab)
 {
-	n_ops(pb, tab, 2);
+	n_ops(pb, tab, n_cnt - 3);
 	sort_3(tab);
-	n_ops(pa, tab, 2);
+	n_ops(pa, tab, n_cnt - 3);
 	/*
 	** TODO: smart sort, ordenar los dos elementos
 	** que acabamos de pushear de 'b' a 'a' de vuelta
@@ -59,5 +59,5 @@ void	sort_small(int n_cnt, t_global *tab)
 	else if (n_cnt == 3)
 		sort_3(tab);
 	else
-		sort_5(tab);
+		sort_5(n_cnt, tab);
 }

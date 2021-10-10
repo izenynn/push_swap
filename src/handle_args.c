@@ -48,7 +48,7 @@ static int	check_repeat(int *arr, int n_cnt)
 
 static int	handle_check(int n_cnt, char **nbrs, int **arr)
 {
-	if (n_cnt < 1 || check_args(n_cnt, nbrs))
+	if (n_cnt < 1 || check_args(nbrs))
 		return (1);
 	*arr = create_int_arr(n_cnt, nbrs);
 	if (!*arr)

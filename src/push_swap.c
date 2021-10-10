@@ -14,7 +14,7 @@
 #include <stdlib.h>
 
 // REMOVE THIS FUNC IN FINAL VERSION
-static void	show_arr_tab(int n, int *arr, t_global *tab)
+/*static void	show_arr_tab(int n, int *arr, t_global *tab)
 {
 	ft_printf("\n|---------------------------|\n");
 	ft_printf("|     ARR     |      A      |\n");
@@ -64,7 +64,7 @@ static void	show_tab(int n, t_global *tab)
 			ft_printf("|             |\n");
 	}
 	ft_printf("|-------------|-------------|\n\n");
-}
+}*/
 
 /*void	leaks(void)
 {
@@ -82,6 +82,8 @@ int	main(int ac, char **av)
 	// TESTS
 	//atexit(leaks);
 	//
+	if (ac == 1)
+		return (EXIT_SUCCESS);
 	n_cnt = handle_args(ac, av, &arr);
 	if (n_cnt < 0)
 		return (EXIT_FAILURE);
@@ -91,11 +93,11 @@ int	main(int ac, char **av)
 		free(arr);
 		return (EXIT_FAILURE);
 	}
-	show_arr_tab(n_cnt, arr, tab);
+	//show_arr_tab(n_cnt, arr, tab);
 	free(arr);
-	show_tab(n_cnt, tab);
+	//show_tab(n_cnt, tab);
 	handle_sort(n_cnt, tab);
-	show_tab(n_cnt, tab);
+	//show_tab(n_cnt, tab);
 	free_tab(tab);
 	return (EXIT_SUCCESS);
 }

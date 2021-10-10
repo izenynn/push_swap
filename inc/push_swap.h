@@ -26,7 +26,7 @@ typedef struct s_global
 
 // handle args
 int			handle_args(int ac, char **av, int **arr);
-int			check_args(int ac, char **av);
+int			check_args(char **nbrs);
 
 // stacks
 t_global	*create_stack(void);

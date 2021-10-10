@@ -13,22 +13,22 @@
 #include <libft/ft_str.h>
 #include <libft/ft_char.h>
 
-static int	check_av_valid(int n_cnt, char **av)
+static int	check_nbrs_valid(char **nbrs)
 {
 	int	i;
 	int	j;
 
-	i = 0;
-	while (++i < n_cnt)
+	i = -1;
+	while (nbrs[++i])
 	{
 		j = -1;
-		if (av[i][0] == '-' || av[i][0] == '+')
+		if (nbrs[i][0] == '-' || nbrs[i][0] == '+')
 			j++;
-		if (!ft_isdigit(av[i][j + 1]))
+		if (!ft_isdigit(nbrs[i][j + 1]))
 			return (1);
-		while (av[i][++j])
+		while (nbrs[i][++j])
 		{
-			if (!ft_isdigit(av[i][j]))
+			if (!ft_isdigit(nbrs[i][j]))
 				return (1);
 		}
 	}
@@ -63,14 +63,14 @@ static int	check_is_int(char *s)
 	return (0);
 }
 
-int	check_args(int n_cnt, char **nbrs)
+int	check_args(char **nbrs)
 {
 	int	i;
 
-	if (check_av_valid(n_cnt, nbrs))
+	if (check_nbrs_valid(nbrs))
 		return (1);
 	i = -1;
-	while (++i < n_cnt)
+	while (nbrs[++i])
 	{
 		if (check_is_int(nbrs[i]))
 			return (1);

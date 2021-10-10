@@ -43,6 +43,10 @@ static void	sort_5(t_global *tab)
 	n_ops(pb, tab, 2);
 	sort_3(tab);
 	n_ops(pa, tab, 2);
+	/*
+	** TODO: smart sort, ordenar los dos elementos
+	** que acabamos de pushear de 'b' a 'a' de vuelta
+	*/
 }
 
 void	sort_small(int n_cnt, t_global *tab)

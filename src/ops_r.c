@@ -12,11 +12,11 @@
 
 #include <push_swap.h>
 
-static int	shift(t_dlist **head)
+static int	shift(t_dlist **head, int sz)
 {
 	if (!*head)
 		return (1);
-	if (ft_dlstsize(*head) < 2)
+	if (sz < 2)
 		return (1);
 	*head = (*head)->next;
 	(*head)->prev->prev = ft_dlstlast(*head);
@@ -28,14 +28,14 @@ static int	shift(t_dlist **head)
 
 void	ra(t_global *tab)
 {
-	if (shift(&tab->head_a))
+	if (shift(&tab->head_a, tab->a_sz))
 		return ;
 	ft_printf("ra\n");
 }
 
 void	rb(t_global *tab)
 {
-	if (shift(&tab->head_b))
+	if (shift(&tab->head_b, tab->b_sz))
 		return ;
 	ft_printf("rb\n");
 }
@@ -45,9 +45,9 @@ void	rr(t_global *tab)
 	int	print;
 
 	print = 1;
-	if (shift(&tab->head_a))
+	if (shift(&tab->head_a, tab->a_sz))
 		print = 0;
-	if (shift(&tab->head_b))
+	if (shift(&tab->head_b, tab->b_sz))
 		print = 0;
 	if (print)
 		ft_printf("rr\n");

@@ -12,11 +12,11 @@
 
 #include <push_swap.h>
 
-static int	reverse_rotate(t_dlist **head)
+static int	reverse_rotate(t_dlist **head, int sz)
 {
 	if (!*head)
 		return (1);
-	if (ft_dlstsize(*head) < 2)
+	if (sz < 2)
 		return (1);
 	(*head)->prev = ft_dlstlast(*head);
 	(*head)->prev->prev->next = NULL;
@@ -28,14 +28,14 @@ static int	reverse_rotate(t_dlist **head)
 
 void	rra(t_global *tab)
 {
-	if (reverse_rotate(&tab->head_a))
+	if (reverse_rotate(&tab->head_a, tab->a_sz))
 		return ;
 	ft_printf("rra\n");
 }
 
 void	rrb(t_global *tab)
 {
-	if (reverse_rotate(&tab->head_b))
+	if (reverse_rotate(&tab->head_b, tab->b_sz))
 		return ;
 	ft_printf("rrb\n");
 }
@@ -45,9 +45,9 @@ void	rrr(t_global *tab)
 	int	print;
 
 	print = 1;
-	if (reverse_rotate(&tab->head_a))
+	if (reverse_rotate(&tab->head_a, tab->a_sz))
 		print = 0;
-	if (reverse_rotate(&tab->head_b))
+	if (reverse_rotate(&tab->head_b, tab->b_sz))
 		print = 0;
 	if (print)
 		ft_printf("rrr\n");

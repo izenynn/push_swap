@@ -22,6 +22,8 @@ typedef struct s_global
 	t_dlist	*b;
 	t_dlist	*head_a;
 	t_dlist	*head_b;
+	int		a_sz;
+	int		b_sz;
 }	t_global;
 
 // handle args
@@ -30,8 +32,8 @@ int			check_args(char **nbrs);
 
 // stacks
 t_global	*create_stack(void);
-int			initialise_tab(t_global *tab, int *arr, int n);
 void		free_tab(t_global *tab);
+int			initialise_tab(t_global *tab, int *arr, int n);
 
 // rules
 void		sa(t_global *tab);
@@ -49,7 +51,9 @@ void		rrr(t_global *tab);
 // sort
 void		handle_sort(int n_cnt, t_global *tab);
 void		sort_small(int n_cnt, t_global *tab);
-int			is_sorted(t_dlist *head);
 void		n_ops(void (*op)(t_global *), t_global *tab, int n);
+int			is_sorted(t_dlist *head);
+int			is_min(t_dlist *head, t_dlist *element);
+int			is_max(t_dlist *head, t_dlist *element);
 
 #endif

@@ -39,8 +39,8 @@ static void	show_tab(int n, t_global *tab)
 	int	a_sz;
 	int	b_sz;
 
-	a_sz = ft_dlstsize(tab->head_a);
-	b_sz = ft_dlstsize(tab->head_b);
+	a_sz = tab->a_sz;
+	b_sz = tab->b_sz;
 	ft_printf("\n|-------------|-------------|\n");
 	ft_printf("|      A      |      B      |\n");
 	ft_printf("|-------------|-------------|\n");

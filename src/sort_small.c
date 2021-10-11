@@ -40,9 +40,20 @@ static void	sort_3(t_global *tab)
 
 static void	sort_5(int n_cnt, t_global *tab)
 {
+	int	i;
+
 	n_ops(pb, tab, n_cnt - 3);
 	sort_3(tab);
-	n_ops(pa, tab, n_cnt - 3);
+	i = -1;
+	while (++i < n_cnt - 3)
+	{
+		pa(tab);
+		if (is_sorted(tab->head_a))
+			return ;
+		if (is_min(tab->head_a, tab->head_a))
+			return ;
+	}
+	//
 	/*
 	** TODO: smart sort, ordenar los dos elementos
 	** que acabamos de pushear de 'b' a 'a' de vuelta

@@ -12,13 +12,10 @@
 
 #include <push_swap.h>
 
-static int	swap(t_dlist **head)
+static int	swap(t_dlist **head, int sz)
 {
-	int	sz;
-
 	if (!*head)
 		return (1);
-	sz = ft_dlstsize(*head);
 	if (sz < 2)
 		return (1);
 	if (sz == 2)
@@ -43,14 +40,14 @@ static int	swap(t_dlist **head)
 
 void	sa(t_global *tab)
 {
-	if (swap(&tab->head_a))
+	if (swap(&tab->head_a, tab->a_sz))
 		return ;
 	ft_printf("sa\n");
 }
 
 void	sb(t_global *tab)
 {
-	if (swap(&tab->head_b))
+	if (swap(&tab->head_b, tab->b_sz))
 		return ;
 	ft_printf("sb\n");
 }
@@ -60,9 +57,9 @@ void	ss(t_global *tab)
 	int	print;
 
 	print = 1;
-	if (swap(&tab->head_a))
+	if (swap(&tab->head_a, tab->a_sz))
 		print = 0;
-	if (swap(&tab->head_b))
+	if (swap(&tab->head_b, tab->b_sz))
 		print = 0;
 	if (print)
 		ft_printf("ss\n");

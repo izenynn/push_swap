@@ -59,5 +59,6 @@ int	initialise_tab(t_global *tab, int *arr, int n_cnt)
 		ft_dlstadd_back(&tab->head_a, ft_dlstnew(tmp));
 		tmp = NULL;
 	}
+	tab->a_sz = ft_dlstsize(tab->head_a);
 	return (0);
 }

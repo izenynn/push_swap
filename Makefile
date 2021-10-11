@@ -40,9 +40,9 @@ LIBFT_DIR = libft
 
 # SOURCES
 SRCS_FILES =	push_swap.c		handle_args.c		check_args.c		\
-				tab_utils.c		ops_s.c				ops_p.c			\
+				tab_utils.c		ops_s.c				ops_p.c				\
 				ops_r.c			ops_rr.c			handle_sort.c		\
-				sort_small.c
+				sort_utils.c	sort_small.c
 
 OBJS_FILES = $(SRCS_FILES:%.c=%.o)
 

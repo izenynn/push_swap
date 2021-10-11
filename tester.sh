@@ -33,6 +33,9 @@ elif [ $CHK_LINUX ]; then
 fi
 if [[ $4 == "bonus" ]]; then
 	CHK_BONUS=`./push_swap $ARG | ./checker_bonus $ARG 2> /dev/null`
+	if [ -z $CHK_BONUS ]; then
+		CHK_BONUS="ERROR"
+	fi
 	printf "checker_bonus: %s\n" "$CHK_BONUS"
 fi
 

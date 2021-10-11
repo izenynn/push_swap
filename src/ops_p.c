@@ -12,7 +12,7 @@
 
 #include <push_swap.h>
 
-static int	push(t_dlist **head_dst, t_dlist **head_src, int *s_sz, int *d_sz)
+static int	push(t_dlist **head_dst, t_dlist **head_src, int *d_sz, int *s_sz)
 {
 	if (!*head_src)
 		return (1);

@@ -31,10 +31,22 @@ int	is_sorted(t_dlist *head)
 
 int	is_min(t_dlist *head, t_dlist *element)
 {
-	;
+	while (head)
+	{
+		if (*(int *)head->data < *(int *)element->data)
+			return (0);
+		head = head->next;
+	}
+	return (1);
 }
 
 int	is_max(t_dlist *head, t_dlist *element)
 {
-	;
+	while (head)
+	{
+		if (*(int *)head->data > *(int *)element->data)
+			return (0);
+		head = head->next;
+	}
+	return (1);
 }

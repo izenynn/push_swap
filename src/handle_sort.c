@@ -18,7 +18,10 @@ void	handle_sort(int n_cnt, t_global *tab)
 		return ;
 	if (n_cnt <= 5)
 		sort_small(n_cnt, tab);
-		
-	else if (n_cnt == 3)
-		sort_small(n_cnt, tab);
+	else if (n_cnt <= 100)
+		return ;
+	else if (n_cnt <= 500)
+		return ;
+	else
+		return ;
 }

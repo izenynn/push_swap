@@ -32,7 +32,7 @@
 			ft_printf(" (null)      |\n");
 	}
 	ft_printf("|---------------------------|\n\n");
-}
+}*/
 
 static void	show_tab(int n, t_global *tab)
 {
@@ -64,7 +64,7 @@ static void	show_tab(int n, t_global *tab)
 			ft_printf("|             |\n");
 	}
 	ft_printf("|-------------|-------------|\n\n");
-}*/
+}
 
 /*void	leaks(void)
 {

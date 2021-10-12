@@ -24,8 +24,8 @@ ARG=`seq $1 $2 | sort -R | tail -n $3 | tr '\n' ' '`
 printf "ARG: %s\n\n" "$ARG"
 
 # Checkers
-CHK_MAC=`./push_swap $ARG | ./checker_mac $ARG 2> /dev/null`
-CHK_LINUX=`./push_swap $ARG | ./checker_linux $ARG 2> /dev/null`
+CHK_MAC=`./push_swap $ARG | ./checkers/checker_mac $ARG 2> /dev/null`
+CHK_LINUX=`./push_swap $ARG | ./checkers/checker_linux $ARG 2> /dev/null`
 if [ $CHK_MAC ]; then
 	printf "checker_mac: %s\n" "$CHK_MAC"
 elif [ $CHK_LINUX ]; then

@@ -24,6 +24,12 @@ if [[ $1 == "--help" ]]; then
 	echo "Tester by: izenynn"
 	echo "github: https://github.com/izenynn"
 	exit 0
+elif [[ $1 == "-c" ]]; then
+	echo # custom combination
+elif [[ $1 == "-o" ]]; then
+	echo # show output
+elif [[ $1 == "-r" ]]; then
+	echo # random
 fi
 
 # Check args

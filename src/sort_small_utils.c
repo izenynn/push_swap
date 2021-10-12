@@ -28,10 +28,14 @@ static void	smart_rotate(t_global *tab, int n)
 
 void	smart_push(t_global *tab)
 {
-	if (is_min(tab->head_a, tab->head_a))
-		pa(tab);
-	else if (is_max(tab->head_a, tab->head_a))
+	if (is_min(tab->head_a, tab->head_b))
 	{
+		sort_a(tab);
+		pa(tab);
+	}
+	else if (is_max(tab->head_a, tab->head_b))
+	{
+		sort_a(tab);
 		pa(tab);
 		ra(tab);
 	}

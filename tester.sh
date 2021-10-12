@@ -19,7 +19,7 @@ if [ ! -f "./checker_bonus" ] && [[ $4 == "bonus" ]]; then
 	echo ""
 fi
 
-# Generato random arguments
+# Generate random arguments
 ARG=`seq $1 $2 | sort -R | tail -n $3 | tr '\n' ' '`
 printf "ARG: %s\n\n" "$ARG"
 

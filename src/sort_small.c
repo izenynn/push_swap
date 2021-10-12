@@ -38,12 +38,11 @@ static void	sort_3(t_global *tab)
 		rra(tab);
 }
 
-static void	sort_5(int n_cnt, t_global *tab)
+static void	sort_5(t_global *tab)
 {
-	// TODO: pasar los (n_cnt - 3) mas pquenos a b
-	;
+	n_ops(pb, tab, tab->a_sz - 3);
 	sort_3(tab);
-	n_ops(pa, tab, n_cnt - 3);
+	n_ops(pa, tab, tab->b_sz);
 }
 
 void	sort_small(int n_cnt, t_global *tab)
@@ -56,5 +55,5 @@ void	sort_small(int n_cnt, t_global *tab)
 	else if (n_cnt == 3)
 		sort_3(tab);
 	else
-		sort_5(n_cnt, tab);
+		sort_5(tab);
 }

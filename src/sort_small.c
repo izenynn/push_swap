@@ -40,12 +40,25 @@ static void	sort_3(t_global *tab)
 
 static void	sort_5(t_global *tab, int n_cnt)
 {
-	/*int	i;
-
-	i = -1;
-	tab->a = tab->head_a;
-	while (i < n_cnt - 3)
-		tab->a = tab->a->next;*/
+	tab->a = tab->head_a->next;
+	if (n_cnt == 5)
+		tab->a = tab->a->next;
+	if (is_sorted(tab->a))
+	{
+		if (n_cnt == 5)
+			pb(tab);
+		if (is_max(tab->head_a, tab->head_a))
+			ra(tab);
+		else if (!is_min(tab->head_a, tab->head_a))
+		{
+			pb(tab);
+			smart_push(tab);
+		}
+		if (n_cnt == 5)
+			smart_push(tab);
+		sort_a(tab);
+		return ;
+	}
 	n_ops(pb, tab, n_cnt - 3);
 	sort_3(tab);
 	n_ops(smart_push, tab, n_cnt - 3);

@@ -96,7 +96,7 @@ int	main(int ac, char **av)
 	//show_arr_tab(n_cnt, arr, tab);
 	free(arr);
 	//show_tab(n_cnt, tab);
-	handle_sort(n_cnt, tab);
+	handle_sort(tab, n_cnt);
 	//show_tab(n_cnt, tab);
 	free_tab(tab);
 	return (EXIT_SUCCESS);

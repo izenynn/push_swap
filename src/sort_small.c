@@ -38,22 +38,23 @@ static void	sort_3(t_global *tab)
 		rra(tab);
 }
 
-static void	sort_5(t_global *tab)
+static void	sort_5(t_global *tab, int n_cnt)
 {
-	n_ops(pb, tab, tab->a_sz - 3);
+	n_ops(pb, tab, n_cnt - 3);
 	sort_3(tab);
-	n_ops(pa, tab, tab->b_sz);
+	n_ops(smart_push, tab, n_cnt - 3);
+	sort_a(tab);
 }
 
-void	sort_small(int n_cnt, t_global *tab)
+void	sort_small(t_global *tab, int n_cnt)
 {
-	if (n_cnt == 2)
+	if (tab->a_sz == 2)
 	{
 		if (*(int *)tab->head_a->data > *(int *)tab->head_a->next->data)
 			sa(tab);
 	}
-	else if (n_cnt == 3)
+	else if (tab->a_sz == 3)
 		sort_3(tab);
 	else
-		sort_5(tab);
+		sort_5(tab, n_cnt);
 }

@@ -12,12 +12,12 @@
 
 #include <push_swap.h>
 
-void	handle_sort(int n_cnt, t_global *tab)
+void	handle_sort(t_global *tab, int n_cnt)
 {
 	if (n_cnt < 2 || is_sorted(tab->head_a))
 		return ;
 	if (n_cnt <= 5)
-		sort_small(n_cnt, tab);
+		sort_small(tab, n_cnt);
 	else if (n_cnt <= 100)
 		return ;
 	else if (n_cnt <= 500)

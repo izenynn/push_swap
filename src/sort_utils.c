@@ -50,3 +50,17 @@ int	is_max(t_dlist *head, t_dlist *element)
 	}
 	return (1);
 }
+
+int	get_ins_pos(t_dlist *head, int data)
+{
+	int	pos;
+
+	pos = 0;
+	while (head && (data > *(int *)head->data
+		&& (!head->prev || data < *(int *)head->prev->data)))
+	{
+		pos++;
+		head = head->next;
+	}
+	return (pos);
+}

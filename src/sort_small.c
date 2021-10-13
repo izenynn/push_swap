@@ -19,7 +19,6 @@ static void	sort_3(t_global *tab)
 	arr[0] = *(int *)tab->head_a->data;
 	arr[1] = *(int *)tab->head_a->next->data;
 	arr[2] = *(int *)tab->head_a->next->next->data;
-
 	if (arr[0] > arr[1] && arr[1] < arr[2] && arr[2] > arr[0])
 		sa(tab);
 	else if (arr[0] > arr[1] && arr[1] > arr[2] && arr[2] < arr[0])
@@ -40,6 +39,8 @@ static void	sort_3(t_global *tab)
 
 static void	sort_5(t_global *tab, int n_cnt)
 {
+	if (is_nsorted(tab->head_a, 3))
+		n_ops(rra, tab, n_cnt - 3);
 	tab->a = tab->head_a->next;
 	if (n_cnt == 5)
 		tab->a = tab->a->next;

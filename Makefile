@@ -6,7 +6,7 @@
 #    By: dpoveda- <me@izenynn.com>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/29 10:15:42 by dpoveda-          #+#    #+#              #
-#    Updated: 2021/10/09 21:23:59 by dpoveda-         ###   ########.fr        #
+#    Updated: 2021/10/13 10:48:27 by dpoveda-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ OBJS_DIR = obj
 LIBFT_DIR = libft
 
 # SOURCES
-SRCS_FILES =	push_swap.c		handle_args.c		check_args.c		\
+SRCS_FILES =	main.c			handle_args.c		check_args.c		\
 				tab_utils.c		ops_s.c				ops_p.c				\
 				ops_r.c			ops_rr.c			handle_sort.c		\
 				sort_utils.c	sort_small.c		sort_small_utils.c
@@ -79,5 +79,6 @@ re: fclean all
 
 norm:
 	@clear
-	@echo "===== NORMINETTE ====="
+	@echo ""
+	@echo "########## NORMINETTE ##########"
 	@norminette .

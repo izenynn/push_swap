@@ -23,7 +23,6 @@ static void	smart_rotate(t_global *tab, int n)
 	else
 		while (n--)
 			ra(tab);
-
 }
 
 void	smart_push(t_global *tab)
@@ -60,4 +59,20 @@ void	sort_a(t_global *tab)
 		tab->a = tab->a->next;
 	}
 	smart_rotate(tab, cnt);
+}
+
+int	get_ins_pos(t_dlist *head, int data)
+{
+	int	pos;
+	int	prev_data;
+
+	pos = 0;
+	prev_data = *(int *)ft_dlstlast(head)->data;
+	while (head && !(data < *(int *)head->data && data > prev_data))
+	{
+		pos++;
+		head = head->next;
+		prev_data = *(int *)head->prev->data;
+	}
+	return (pos);
 }

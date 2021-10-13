@@ -12,7 +12,7 @@
 
 #include <push_swap.h>
 
-void n_ops(void (*op)(t_global *), t_global *tab, int n)
+void	n_ops(void (*op)(t_global *), t_global *tab, int n)
 {
 	while (n--)
 		op(tab);
@@ -21,6 +21,17 @@ void n_ops(void (*op)(t_global *), t_global *tab, int n)
 int	is_sorted(t_dlist *head)
 {
 	while (head->next)
+	{
+		if (*(int *)head->data > *(int *)head->next->data)
+			return (0);
+		head = head->next;
+	}
+	return (1);
+}
+
+int	is_nsorted(t_dlist *head, int n)
+{
+	while (head->next && n--)
 	{
 		if (*(int *)head->data > *(int *)head->next->data)
 			return (0);
@@ -49,20 +60,4 @@ int	is_max(t_dlist *head, t_dlist *element)
 		head = head->next;
 	}
 	return (1);
-}
-
-int	get_ins_pos(t_dlist *head, int data)
-{
-	int	pos;
-	int	prev_data;
-
-	pos = 0;
-	prev_data = *(int *)ft_dlstlast(head)->data;
-	while (head && !(data < *(int *)head->data && data > prev_data))
-	{
-		pos++;
-		head = head->next;
-		prev_data = *(int *)head->prev->data;
-	}
-	return (pos);
 }

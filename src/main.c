@@ -13,18 +13,12 @@
 #include <push_swap.h>
 #include <stdlib.h>
 
-void	leaks(void)
-{
-	system("leaks -q push_swap");
-}
-
 int	main(int ac, char **av)
 {
 	t_global	*tab;
 	int			*arr;
 	int			n_cnt;
 
-	atexit(leaks);
 	if (ac == 1)
 		return (EXIT_SUCCESS);
 	n_cnt = handle_args(ac, av, &arr);

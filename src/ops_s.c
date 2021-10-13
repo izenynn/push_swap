@@ -56,11 +56,11 @@ void	ss(t_global *tab)
 {
 	int	print;
 
-	print = 1;
+	print = 2;
 	if (swap(&tab->head_a, tab->a_sz))
-		print = 0;
+		print--;
 	if (swap(&tab->head_b, tab->b_sz))
-		print = 0;
+		print--;
 	if (print)
 		ft_printf("ss\n");
 }

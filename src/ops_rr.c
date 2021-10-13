@@ -44,11 +44,11 @@ void	rrr(t_global *tab)
 {
 	int	print;
 
-	print = 1;
+	print = 2;
 	if (reverse_rotate(&tab->head_a, tab->a_sz))
-		print = 0;
+		print--;
 	if (reverse_rotate(&tab->head_b, tab->b_sz))
-		print = 0;
+		print--;
 	if (print)
 		ft_printf("rrr\n");
 }

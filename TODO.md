@@ -4,7 +4,7 @@
 - [ ] remote -fsanitize flag from makefile
 
 ### DOING
-- [ ] ss, rr, rrr -> no print besides function do movements
+- [ ] change tester github photos (and add log info in --help and README.md)
 - [ ] algorithm sort 100
 - [ ] algorithm sort 500
 
@@ -16,3 +16,4 @@
 - [x] rules
 - [x] algorithm sort 3
 - [x] algorithm sort 5
+- [x] ss, rr, rrr -> no print besides function do movements

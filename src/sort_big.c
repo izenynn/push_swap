@@ -57,10 +57,9 @@ void	sort_big(t_global *tab)
 {
 	int	chunk_sz;
 
-	chunk_sz = (3 * tab->a_sz / 40) + (45 / 2);
+	chunk_sz = tab->a_sz / 13 + 22;
 	while (chunk_sz % 5)
 		chunk_sz++;
-	chunk_sz = 50;
 	push_in_chunks(tab, chunk_sz);
 	push_back_in_order(tab);
 }

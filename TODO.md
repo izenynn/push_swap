@@ -5,8 +5,6 @@
 
 ### DOING
 - [ ] change tester github photos (and add log info in --help and README.md)
-- [ ] algorithm sort 100
-- [ ] algorithm sort 500
 
 ### DONE ✓
 - [x] handle numbers in various arguments -> ./push_swap 4 6 2 54 11
@@ -17,3 +15,5 @@
 - [x] algorithm sort 3
 - [x] algorithm sort 5
 - [x] ss, rr, rrr -> no print besides function do movements
+- [x] algorithm sort 100
+- [x] algorithm sort 500

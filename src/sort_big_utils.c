@@ -32,7 +32,7 @@ int	smart_rotate_b(t_global *tab)
 	swap = 0;
 	sz = tab->b_sz;
 	tab->b = tab->head_b;
-	while (*(int *)tab->b->data != tab->b_sz - 1 && ++cnt)
+	while (*(int *)tab->b->data != sz - 1 && ++cnt)
 		tab->b = tab->b->next;
 	while (*(int *)tab->head_b->data != sz - 1)
 	{

@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <push_swap.h>
+#include <libft/ft_printf.h>
 
 static int	reverse_rotate(t_dlist **head, int sz)
 {

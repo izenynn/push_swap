@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include <shared.h>
 #include <libft/ft_str.h>
 #include <libft/ft_fd.h>
 #include <libft/ft_nbr.h>

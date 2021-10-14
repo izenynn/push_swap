@@ -13,6 +13,8 @@
 # NAMES
 NAME = push_swap
 
+CHECKER_NAME = checker
+
 LIBFT_NAME = libft.a
 
 # MAKE
@@ -21,7 +23,7 @@ MAKE = make
 # COMPILER
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror #-fsanitize=address -g3
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g3
 
 CFLAGS += -I ./$(LIBFT_DIR)/inc -I ./inc
 
@@ -31,46 +33,74 @@ LDLIBS = -lft
 
 LIBFT = $(LIBFT_DIR)/$(LIBFT_NAME)
 
-# DIRS
-SRCS_DIR = src
+# PATHS
+SRCS_PATH = src
+OBJS_PATH = obj
 
-OBJS_DIR = obj
+# SRCS DIRS
+SHARED_DIR = shared
+PUSH_SWAP_DIR = push_swap_dir
+CHECKER_DIR = checker_dir
+
+# OBJS DIRS
+OBJS_DIRS_NAME =	$(SHARED_DIR)		$(PUSH_SWAP_DIR)	$(CHECKER_DIR)
+
+OBJS_DIRS = $(addprefix $(OBJS_PATH)/, $(OBJS_DIRS_NAME))
 
 LIBFT_DIR = libft
 
 # SOURCES
-SRCS_FILES =	main.c			handle_args.c		check_args.c		\
-				tab_utils.c		ops_s.c				ops_p.c				\
-				ops_r.c			ops_rr.c			handle_sort.c		\
-				sort_small.c	sort_small_utils.c	sort_big.c			\
-				sort_big_utils.c
+SHARED_FILES =		handle_args.c	check_args.c		tab_utils.c
 
-OBJS_FILES = $(SRCS_FILES:%.c=%.o)
+PUSH_SWAP_FILES =	main.c			ops_s.c				ops_p.c				\
+					ops_r.c			ops_rr.c			handle_sort.c		\
+					sort_small.c	sort_small_utils.c	sort_big.c			\
+					sort_big_utils.c
 
-SRCS = $(addprefix $(SRCS_DIR)/, $(SRCS_FILES))
+CHECKER_FILES =		checker.c
 
-OBJS = $(addprefix $(OBJS_DIR)/, $(OBJS_FILES))
+SHARED_SRCS = $(addprefix $(SHARED_DIR)/, $(SHARED_FILES))
+
+PUSH_SWAP_SRCS = $(SHARED_SRCS)
+PUSH_SWAP_SRCS += $(addprefix $(PUSH_SWAP_DIR)/, $(PUSH_SWAP_FILES))
+
+CHECKER_SRCS = $(SHARED_SRCS)
+CHECKER_SRCS += $(addprefix $(CHECKER_DIR)/, $(CHECKER_FILES))
+
+PUSH_SWAP_OBJS_FILES = $(PUSH_SWAP_SRCS:%.c=%.o)
+
+CHECKER_OBJS_FILES = $(CHECKER_SRCS:%.c=%.o)
+
+PUSH_SWAP_OBJS = $(addprefix $(OBJS_PATH)/, $(PUSH_SWAP_OBJS_FILES))
+
+CHECKER_OBJS = $(addprefix $(OBJS_PATH)/, $(CHECKER_OBJS_FILES))
 
 .PHONY: all bonus clean fclean re norm
 
-all: $(NAME)
+all: $(NAME) $(CHECKER_NAME)
 
-$(NAME): $(LIBFT) $(OBJS)
+$(NAME): $(LIBFT) $(PUSH_SWAP_OBJS)
+	$(CC) $^ -o $@ $(CFLAGS) $(LDFLAGS) $(LDLIBS)
+
+$(CHECKER_NAME): $(LIBFT) $(CHECKER_OBJS)
 	$(CC) $^ -o $@ $(CFLAGS) $(LDFLAGS) $(LDLIBS)
 
 $(LIBFT):
 	$(MAKE) all -sC $(LIBFT_DIR)
 
-$(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c | $(OBJS_DIR)
+$(OBJS_PATH)/%.o: $(SRCS_PATH)/%.c | $(OBJS_DIRS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(OBJS_DIR):
-	mkdir -p $(OBJS_DIR)
+$(OBJS_DIRS): | $(OBJS_PATH)
+	mkdir -p $(OBJS_DIRS) 2> /dev/null
+
+$(OBJS_PATH):
+	mkdir -p $(OBJS_PATH) 2> /dev/null
 
 clean:
 	$(MAKE) clean -sC $(LIBFT_DIR)
 	rm -rf $(LIBFT_NAME)
-	rm -rf $(OBJS_DIR)
+	rm -rf $(OBJS_PATH)
 
 fclean: clean
 	$(MAKE) fclean -sC $(LIBFT_DIR)

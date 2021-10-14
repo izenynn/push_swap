@@ -62,4 +62,8 @@ void		smart_push(t_global *tab);
 void		sort_a(t_global *tab);
 int			get_ins_pos(t_dlist *head, int data);
 
+// sort big
+void		sort_big(t_global *tab);
+int			smart_rotate_b(t_global *tab);
+
 #endif

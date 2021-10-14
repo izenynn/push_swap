@@ -29,17 +29,6 @@ int	is_sorted(t_dlist *head)
 	return (1);
 }
 
-int	is_nsorted(t_dlist *head, int n)
-{
-	while (head->next && n--)
-	{
-		if (*(int *)head->data > *(int *)head->next->data)
-			return (0);
-		head = head->next;
-	}
-	return (1);
-}
-
 int	is_min(t_dlist *head, t_dlist *element)
 {
 	while (head)

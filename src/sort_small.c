@@ -39,9 +39,13 @@ static void	sort_3(t_global *tab)
 
 static void	sort_5(t_global *tab, int n_cnt)
 {
-	n_ops(pb, tab, n_cnt - 3);
+	if (n_cnt == 5)
+		pb(tab);
+	pb(tab);
 	sort_3(tab);
-	n_ops(smart_push, tab, n_cnt - 3);
+	if (n_cnt == 5)
+		smart_push(tab);
+	smart_push(tab);
 	sort_a(tab);
 }
 

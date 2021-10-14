@@ -12,7 +12,30 @@
 
 #include <push_swap.h>
 
-static void	smart_rotate(t_global *tab, int n)
+static int	is_min_or_max(t_dlist *head, t_dlist *element, int find_min)
+{
+	if (find_min)
+	{
+		while (head)
+		{
+			if (*(int *)head->data < *(int *)element->data)
+				return (0);
+			head = head->next;
+		}
+	}
+	else
+	{
+		while (head)
+		{
+			if (*(int *)head->data > *(int *)element->data)
+				return (0);
+			head = head->next;
+		}
+	}
+	return (1);
+}
+
+static void	smart_rotate_a(t_global *tab, int n)
 {
 	if (n > tab->a_sz / 2)
 	{
@@ -25,43 +48,7 @@ static void	smart_rotate(t_global *tab, int n)
 			ra(tab);
 }
 
-void	smart_push(t_global *tab)
-{
-	if (is_min(tab->head_a, tab->head_b))
-	{
-		sort_a(tab);
-		pa(tab);
-	}
-	else if (is_max(tab->head_a, tab->head_b))
-	{
-		sort_a(tab);
-		pa(tab);
-		ra(tab);
-	}
-	else
-	{
-		smart_rotate(tab, get_ins_pos(tab->head_a, *(int *)tab->head_b->data));
-		pa(tab);
-	}
-}
-
-void	sort_a(t_global *tab)
-{
-	int	cnt;
-
-	cnt = 0;
-	tab->a = tab->head_a;
-	while (tab->a)
-	{
-		if (is_min(tab->head_a, tab->a))
-			break ;
-		cnt++;
-		tab->a = tab->a->next;
-	}
-	smart_rotate(tab, cnt);
-}
-
-int	get_ins_pos(t_dlist *head, int data)
+static int	get_ins_pos(t_dlist *head, int data)
 {
 	int	pos;
 	int	prev_data;
@@ -75,4 +62,41 @@ int	get_ins_pos(t_dlist *head, int data)
 		prev_data = *(int *)head->prev->data;
 	}
 	return (pos);
+}
+
+void	smart_push(t_global *tab)
+{
+	if (is_min_or_max(tab->head_a, tab->head_b, 1))
+	{
+		sort_a(tab);
+		pa(tab);
+	}
+	else if (is_min_or_max(tab->head_a, tab->head_b, 0))
+	{
+		sort_a(tab);
+		pa(tab);
+		ra(tab);
+	}
+	else
+	{
+		smart_rotate_a(tab,
+			get_ins_pos(tab->head_a, *(int *)tab->head_b->data));
+		pa(tab);
+	}
+}
+
+void	sort_a(t_global *tab)
+{
+	int	cnt;
+
+	cnt = 0;
+	tab->a = tab->head_a;
+	while (tab->a)
+	{
+		if (is_min_or_max(tab->head_a, tab->a, 1))
+			break ;
+		cnt++;
+		tab->a = tab->a->next;
+	}
+	smart_rotate_a(tab, cnt);
 }

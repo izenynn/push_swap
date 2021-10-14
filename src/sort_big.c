@@ -24,7 +24,8 @@ static void	push_in_chunks(t_global *tab, int chunk_sz)
 		if (*(int *)tab->head_a->data < (chunk_sz * chunk_n))
 		{
 			pb(tab);
-			if(*(int *)tab->head_b->data >= chunk_sz * chunk_n - (chunk_sz / 2))
+			if (*(int *)tab->head_b->data
+				>= chunk_sz * chunk_n - (chunk_sz / 2))
 				rb(tab);
 			cnt++;
 		}

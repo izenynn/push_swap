@@ -50,17 +50,11 @@ void		rrr(t_global *tab);
 
 // sort
 void		handle_sort(t_global *tab, int n_cnt);
-void		n_ops(void (*op)(t_global *), t_global *tab, int n);
-int			is_sorted(t_dlist *head);
-int			is_nsorted(t_dlist *head, int n);
-int			is_min(t_dlist *head, t_dlist *element);
-int			is_max(t_dlist *head, t_dlist *element);
 
 // sort small
 void		sort_small(t_global *tab, int n_cnt);
 void		smart_push(t_global *tab);
 void		sort_a(t_global *tab);
-int			get_ins_pos(t_dlist *head, int data);
 
 // sort big
 void		sort_big(t_global *tab);

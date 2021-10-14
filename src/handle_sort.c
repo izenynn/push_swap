@@ -12,6 +12,17 @@
 
 #include <push_swap.h>
 
+static int	is_sorted(t_dlist *head)
+{
+	while (head->next)
+	{
+		if (*(int *)head->data > *(int *)head->next->data)
+			return (0);
+		head = head->next;
+	}
+	return (1);
+}
+
 void	handle_sort(t_global *tab, int n_cnt)
 {
 	if (n_cnt < 2 || is_sorted(tab->head_a))

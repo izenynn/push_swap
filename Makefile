@@ -21,7 +21,7 @@ MAKE = make
 # COMPILER
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g3
+CFLAGS = -Wall -Wextra -Werror #-fsanitize=address -g3
 
 CFLAGS += -I ./$(LIBFT_DIR)/inc -I ./inc
 
@@ -42,8 +42,8 @@ LIBFT_DIR = libft
 SRCS_FILES =	main.c			handle_args.c		check_args.c		\
 				tab_utils.c		ops_s.c				ops_p.c				\
 				ops_r.c			ops_rr.c			handle_sort.c		\
-				sort_utils.c	sort_small.c		sort_small_utils.c	\
-				sort_big.c		sort_big_utils.c
+				sort_small.c	sort_small_utils.c	sort_big.c			\
+				sort_big_utils.c
 
 OBJS_FILES = $(SRCS_FILES:%.c=%.o)
 

@@ -105,6 +105,7 @@ clean:
 fclean: clean
 	$(MAKE) fclean -sC $(LIBFT_DIR)
 	rm -rf $(NAME)
+	rm -rf $(CHECKER_NAME)
 
 re: fclean all
 

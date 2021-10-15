@@ -16,9 +16,9 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-static void	ko_exit()
+static void	err_exit()
 {
-	ft_putstr_fd("KO\n", STDOUT_FILENO);
+	ft_putstr_fd("Error\n", STDOUT_FILENO);
 	exit(EXIT_SUCCESS);
 }
 
@@ -61,7 +61,7 @@ static void	eval_line(t_global *tab, char *line)
 	else if (!ft_strncmp(line, "rrr\n", 5))
 		rrr(tab, 0);
 	else
-		ko_exit();
+		err_exit();
 }
 
 static void	handle_check(t_global *tab, int n_cnt)
@@ -77,7 +77,10 @@ static void	handle_check(t_global *tab, int n_cnt)
 	}
 	free(line);
 	if (!is_sorted(tab, n_cnt))
-		ko_exit();
+	{
+		ft_putstr_fd("KO\n", STDOUT_FILENO);
+		exit (EXIT_SUCCESS);
+	}
 	ft_putstr_fd("OK\n", STDOUT_FILENO);
 }
 

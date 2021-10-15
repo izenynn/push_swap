@@ -6,7 +6,7 @@
 /*   By: dpoveda- <me@izenynn.com>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 01:30:35 by dpoveda-          #+#    #+#             */
-/*   Updated: 2021/10/15 09:58:42 by dpoveda-         ###   ########.fr       */
+/*   Updated: 2021/10/15 10:57:45 by dpoveda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,12 +77,10 @@ static void	handle_check(t_global *tab, int n_cnt)
 		line = ft_get_next_line(STDIN_FILENO);
 	}
 	free(line);
-	if (!is_sorted(tab, n_cnt))
-	{
-		ft_putstr_fd("KO\n", STDOUT_FILENO);
-		exit (EXIT_SUCCESS);
-	}
-	ft_putstr_fd("OK\n", STDOUT_FILENO);
+	if (is_sorted(tab, n_cnt))
+		ft_putstr_fd("OK\n", STDOUT_FILENO);
+	else
+		ft_putstr_fd("OK\n", STDOUT_FILENO);
 }
 
 int	main(int ac, char **av)

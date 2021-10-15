@@ -103,7 +103,6 @@ int	main(int ac, char **av)
 	}
 	free(arr);
 	handle_check(tab, n_cnt);
-	// QUITA SANITIZE DEL MAKEFILE
 	free_tab(tab);
 	return (EXIT_SUCCESS);
 }

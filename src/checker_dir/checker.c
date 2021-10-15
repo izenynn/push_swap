@@ -16,9 +16,10 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-static void	err_exit()
+static void	err_exit(t_global *tab)
 {
 	ft_putstr_fd("Error\n", STDOUT_FILENO);
+	free_tab(tab);
 	exit(EXIT_SUCCESS);
 }
 
@@ -61,7 +62,7 @@ static void	eval_line(t_global *tab, char *line)
 	else if (!ft_strncmp(line, "rrr\n", 5))
 		rrr(tab, 0);
 	else
-		err_exit();
+		err_exit(tab);
 }
 
 static void	handle_check(t_global *tab, int n_cnt)

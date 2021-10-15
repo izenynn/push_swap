@@ -34,7 +34,7 @@ Sort stack `a`, with the help of stack `b`, using the smallest number of moves a
 - At the end stack `b` must be emtpy and all integers must be sorted in ascending order in stack `a`.
 
 My implementation of the operations in a doubly linked list:
-![Operations diagram](https://github.com/izenynn/push_swap/diagrams/operations_diagram.png)
+![Operations diagram](https://github.com/izenynn/push_swap/blob/main/diagrams/operations_diagram.png)
 
 ## Aproach
 
@@ -49,7 +49,7 @@ Easy, `sa` if second one if bigger than the first.
 - 3 numbers
 For 3 numbers it is easy, they are only 5 possible solutions, so a few if else was all I needed:
 
-![Sort three diagram](https://github.com/izenynn/push_swap/diagrams/sort_three_diagram.png)
+![Sort three diagram](https://github.com/izenynn/push_swap/blob/main/diagrams/sort_three_diagram.png)
 
 - 3 ~ 5 numbers
 This is when things get darker, to sort 4 or 5 arguments I just push 1 or 2 numbers from stack `a` to `b`, making sure I left 3 arguments on `a`, so now I can sort those 3 numbers with the sort 3 function. Once sorted I push back to stack `a` the numbers on stack `b`, making sure I push it in the correct positions, how? I just rotate the stack with `ra` and `rra`, and push the number back when I can push it in the correct position. When done I just rotate the list until the smallest number is on top.
@@ -61,6 +61,7 @@ After trying different algorithms and seeing them in action, I decided to use a 
 	- 40 ~ 59: chunk 3
 	- 60 ~ 79: chunk 4
 	- 80 ~ 99: chunk 5
+
 Now, I rotate stack `a` searching for numbers in chunk 1, once I found one, I push it to `b`. Once all the stack is pushed, I move to the next one, and so on until stack `a` is empty.
 To push the elements back to stack `a` I just check for the bigger one, rotate with `ra` or `rra`, depending on wich one takes less moves, and push the element back, one by one, from bigger to smaller, and since they are sorted by chunks, I will not need to rotate too much to find the next one.
 
@@ -81,7 +82,7 @@ make
 - You can use other commands like `seq` and `sort -R` to generate a random list, and make it complex
 
 ```sh
-ARG=`seq -1000 1000 | sort -R | tail -n 500 | tr '\n' ' '` && ./push_swap $ARG
+ARG=`seq -1000 1000 | sort -R | tail -n 500 | tr '\n' ' '`; ./push_swap $ARG
 ```
 
 - If you can to use a checker, just use it as follows:

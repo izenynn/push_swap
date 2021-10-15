@@ -6,7 +6,7 @@
 /*   By: dpoveda- <me@izenynn.com>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 17:09:19 by dpoveda-          #+#    #+#             */
-/*   Updated: 2021/10/13 17:09:26 by dpoveda-         ###   ########.fr       */
+/*   Updated: 2021/10/15 09:52:57 by dpoveda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	sort_big(t_global *tab)
 	int	chunk_sz;
 
 	chunk_sz = tab->a_sz / 13 + 22;
-	while (chunk_sz % 5)
+	if (!chunk_sz % 2)
 		chunk_sz++;
 	push_in_chunks(tab, chunk_sz);
 	push_back_in_order(tab);

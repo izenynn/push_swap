@@ -16,7 +16,7 @@ static int	try_push_next(t_global *tab, int swap)
 {
 	if (*(int *)tab->head_b->data == tab->b_sz - 2 && !swap)
 	{
-		pa(tab);
+		pa(tab, 1);
 		return (1);
 	}
 	return (0);
@@ -39,9 +39,9 @@ int	smart_rotate_b(t_global *tab)
 		if (!try_push_next(tab, swap))
 		{
 			if (cnt > sz / 2)
-				rrb(tab);
+				rrb(tab, 1);
 			else
-				rb(tab);
+				rb(tab, 1);
 		}
 		else
 			swap = 1;

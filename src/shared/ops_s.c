@@ -39,29 +39,31 @@ static int	swap(t_dlist **head, int sz)
 	return (0);
 }
 
-void	sa(t_global *tab)
+void	sa(t_global *tab, int print)
 {
 	if (swap(&tab->head_a, tab->a_sz))
 		return ;
-	ft_printf("sa\n");
-}
-
-void	sb(t_global *tab)
-{
-	if (swap(&tab->head_b, tab->b_sz))
-		return ;
-	ft_printf("sb\n");
-}
-
-void	ss(t_global *tab)
-{
-	int	print;
-
-	print = 2;
-	if (swap(&tab->head_a, tab->a_sz))
-		print--;
-	if (swap(&tab->head_b, tab->b_sz))
-		print--;
 	if (print)
+		ft_printf("sa\n");
+}
+
+void	sb(t_global *tab, int print)
+{
+	if (swap(&tab->head_b, tab->b_sz))
+		return ;
+	if (print)
+		ft_printf("sb\n");
+}
+
+void	ss(t_global *tab, int print)
+{
+	int	exec;
+
+	exec = 2;
+	if (swap(&tab->head_a, tab->a_sz))
+		exec--;
+	if (swap(&tab->head_b, tab->b_sz))
+		exec--;
+	if (print && exec)
 		ft_printf("ss\n");
 }

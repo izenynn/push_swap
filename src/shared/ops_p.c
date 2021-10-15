@@ -39,16 +39,18 @@ static int	push(t_dlist **head_dst, t_dlist **head_src, int *d_sz, int *s_sz)
 	return (0);
 }
 
-void	pa(t_global *tab)
+void	pa(t_global *tab, int print)
 {
 	if (push(&tab->head_a, &tab->head_b, &tab->a_sz, &tab->b_sz))
 		return ;
-	ft_printf("pa\n");
+	if (print)
+		ft_printf("pa\n");
 }
 
-void	pb(t_global *tab)
+void	pb(t_global *tab, int print)
 {
 	if (push(&tab->head_b, &tab->head_a, &tab->b_sz, &tab->a_sz))
 		return ;
-	ft_printf("pb\n");
+	if (print)
+		ft_printf("pb\n");
 }

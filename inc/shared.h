@@ -35,16 +35,16 @@ void		free_tab(t_global *tab);
 int			initialise_tab(t_global *tab, int *arr, int n);
 
 // rules
-void		sa(t_global *tab);
-void		sb(t_global *tab);
-void		ss(t_global *tab);
-void		pa(t_global *tab);
-void		pb(t_global *tab);
-void		ra(t_global *tab);
-void		rb(t_global *tab);
-void		rr(t_global *tab);
-void		rra(t_global *tab);
-void		rrb(t_global *tab);
-void		rrr(t_global *tab);
+void		sa(t_global *tab, int print);
+void		sb(t_global *tab, int print);
+void		ss(t_global *tab, int print);
+void		pa(t_global *tab, int print);
+void		pb(t_global *tab, int print);
+void		ra(t_global *tab, int print);
+void		rb(t_global *tab, int print);
+void		rr(t_global *tab, int print);
+void		rra(t_global *tab, int print);
+void		rrb(t_global *tab, int print);
+void		rrr(t_global *tab, int print);
 
 #endif

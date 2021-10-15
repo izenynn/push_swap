@@ -41,11 +41,11 @@ static void	smart_rotate_a(t_global *tab, int n)
 	{
 		n = tab->a_sz - n;
 		while (n--)
-			rra(tab);
+			rra(tab, 1);
 	}
 	else
 		while (n--)
-			ra(tab);
+			ra(tab, 1);
 }
 
 static int	get_ins_pos(t_dlist *head, int data)
@@ -69,19 +69,19 @@ void	smart_push(t_global *tab)
 	if (is_min_or_max(tab->head_a, tab->head_b, 1))
 	{
 		sort_a(tab);
-		pa(tab);
+		pa(tab, 1);
 	}
 	else if (is_min_or_max(tab->head_a, tab->head_b, 0))
 	{
 		sort_a(tab);
-		pa(tab);
-		ra(tab);
+		pa(tab, 1);
+		ra(tab, 1);
 	}
 	else
 	{
 		smart_rotate_a(tab,
 			get_ins_pos(tab->head_a, *(int *)tab->head_b->data));
-		pa(tab);
+		pa(tab, 1);
 	}
 }
 

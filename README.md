@@ -4,8 +4,8 @@
 
 This project involves sorting data on a stack, with a limited set of instructions, and the smallest number of moves. To make this happen, you have to manipulate various sorting algorithms and choose the most appropriate solution(s) for optimized data sorting.
 
-- Status: waitinf for evaluation
-- Result: n/a
+- Status: finished
+- Result: 125%
 - Observations: (null)
 
 ## Challenge

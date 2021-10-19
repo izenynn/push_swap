@@ -25,7 +25,7 @@ static void	push_in_chunks(t_global *tab, int chunk_sz)
 		{
 			pb(tab, 1);
 			if (*(int *)tab->head_b->data
-				>= chunk_sz * chunk_n - (chunk_sz / 2))
+				< chunk_sz * chunk_n - (chunk_sz / 2))
 				rb(tab, 1);
 			cnt++;
 		}
@@ -58,9 +58,7 @@ void	sort_big(t_global *tab)
 {
 	int	chunk_sz;
 
-	chunk_sz = tab->a_sz / 13 + 22;
-	if (!chunk_sz % 2)
-		chunk_sz++;
+	chunk_sz = tab->a_sz / 12 + 22;
 	push_in_chunks(tab, chunk_sz);
 	push_back_in_order(tab);
 }

@@ -67,6 +67,12 @@ To push the elements back to stack `a` I just check for the bigger one, rotate w
 
 ## How to use
 
+- Clone with "--recurse-submodules"
+
+```sh
+git clone --recurse-submodules https://github.com/izenynn/push_swap_tester.git
+```
+
 - Compile using make
 
 ```sh

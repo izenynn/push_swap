@@ -80,7 +80,7 @@ static void	handle_check(t_global *tab, int n_cnt)
 	if (is_sorted(tab, n_cnt))
 		ft_putstr_fd("OK\n", STDOUT_FILENO);
 	else
-		ft_putstr_fd("OK\n", STDOUT_FILENO);
+		ft_putstr_fd("KO\n", STDOUT_FILENO);
 }
 
 int	main(int ac, char **av)

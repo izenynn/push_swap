@@ -70,7 +70,7 @@ To push the elements back to stack `a` I just check for the bigger one, rotate w
 - Clone with "--recurse-submodules"
 
 ```sh
-git clone --recurse-submodules https://github.com/izenynn/push_swap_tester.git
+git clone --recurse-submodules https://github.com/izenynn/push_swap.git
 ```
 
 - Compile using make

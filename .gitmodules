@@ -1,6 +1,6 @@
 [submodule "libft"]
 	path = libft
-	url = git@github.com:izenynn/libft.git
+	url = https://github.com/izenynn/libft.git
 [submodule "push_swap_tester"]
 	path = push_swap_tester
-	url = git@github.com:izenynn/push_swap_tester.git
+	url = https://github.com/izenynn/push_swap_tester.git
